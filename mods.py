@@ -59,7 +59,7 @@ def modified_non_maximum_suppression(G, theta, lane_indicies):
         else:
             return G[i-1,j+1], G[i+1,j-1]
 
-    padded_G = zero_pad(G, 1, 1)
+    padded_G = np.pad(G, 1, mode='constant')
 
     visited_indices = set()
     for i in range(len(lane_indicies)):
