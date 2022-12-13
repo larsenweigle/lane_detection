@@ -1,6 +1,6 @@
 """ edge.py
 
-Builds out the necessary functions to implement a Canny edge filter and Hough Transform 
+Builds out the necessary functions to implement a Canny edge detector and Hough Transform 
 function for straight lines. Together, they can be used to build a lane line detection 
 algorithm as demonstrated in detection.py. 
 """
