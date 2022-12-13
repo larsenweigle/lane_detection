@@ -37,6 +37,7 @@ def conv(image, kernel):
 
     kernel = np.flip(kernel)
 
+
     for r in range(Hi):
         for c in range(Wi):
             # calculate convolution at location (r, c) in the output image
@@ -44,6 +45,7 @@ def conv(image, kernel):
             out[r,c] = np.sum(weighted_neighbors)
 
     return out
+
 
 def zero_pad(image, pad_height, pad_width):
     """ Pads an input image with zeros for processing. 
@@ -67,6 +69,7 @@ def zero_pad(image, pad_height, pad_width):
 
     return out
 
+
 def gaussian_kernel(size, sigma):
     """ Implementation of Gaussian Kernel.
 
@@ -89,6 +92,7 @@ def gaussian_kernel(size, sigma):
 
     return kernel
 
+
 def partial_x(img):
     """ Computes partial x-derivative of input img.
 
@@ -102,6 +106,7 @@ def partial_x(img):
     
     return out
 
+
 def partial_y(img):
     """ Computes partial y-derivative of input img.
 
@@ -114,6 +119,7 @@ def partial_y(img):
     out = conv(img, y_dir_kernel)
 
     return out
+
 
 def gradient(img):
     """ Returns gradient magnitude and direction of input img.
@@ -158,16 +164,6 @@ def non_maximum_suppression(G, theta):
     theta = np.floor((theta + 22.5) / 45) * 45
     theta = (theta % 360.0).astype(np.int32)
     
-    def zero_pad(image, pad_height, pad_width):
-        H, W = image.shape
-        out = None
-
-        col_pad, row_pad = np.zeros((H, pad_width)), np.zeros((pad_height, W + 2 * pad_width))
-        image_col_padded = np.concatenate([np.concatenate([col_pad, image], axis=1), col_pad], axis=1)
-        out = np.concatenate([np.concatenate([row_pad, image_col_padded], axis=0), row_pad], axis=0)
-
-        return out
-    
     def get_grad_values(grad_dir, G, i, j):
         if grad_dir == 0 or grad_dir == 180 or grad_dir == 360:
             return G[i,j-1], G[i,j+1]
@@ -190,6 +186,7 @@ def non_maximum_suppression(G, theta):
                 out[i,j] = val
 
     return out
+
 
 def double_thresholding(img, high, low):
     """
@@ -248,6 +245,7 @@ def get_neighbors(y, x, H, W):
 
     return neighbors
 
+
 def link_edges(strong_edges, weak_edges):
     """ Find weak edges connected to strong edges and link them.
 
@@ -290,6 +288,7 @@ def link_edges(strong_edges, weak_edges):
 
     return edges
 
+
 def canny(img, kernel_size=5, sigma=1.4, high=20, low=15):
     """ Implement canny edge detector by calling functions above.
 
@@ -310,6 +309,7 @@ def canny(img, kernel_size=5, sigma=1.4, high=20, low=15):
     edge = link_edges(strong_edges, weak_edges)
 
     return edge
+
 
 def hough_transform(img):
     """ Transform points in the input image into Hough space.
