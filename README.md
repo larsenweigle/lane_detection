@@ -4,7 +4,7 @@ This project involves building a Canny edge detector and Hough Transform functio
 
 ## Overview
 
-The project includes a Python script, `edge.py`, that contains functions for various stages of the edge detection process.
+The project includes a Python script, `edge.py`, that contains functions for various stages of the edge detection process. `mods.py` is a script that uses simple heuristics to decrease the overall run time of the algorithm. 
 
 ## Prerequisites
 
