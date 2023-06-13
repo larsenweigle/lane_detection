@@ -48,13 +48,8 @@ You can run the script in a Python environment: python edge.py
 
 The output is a binary image with white pixels tracing out the detected edges and black elsewhere.
 
-## Results and Outputs
-
-The final output will be a set of images showing the steps of the algorithm and the final detected edges.
-
 ## Future Work
 
-- Improve the detection accuracy
-- Optimize the algorithm's performance
-- Add more edge detection methods
-- Apply this algorithm to video streams for real-time lane detection.
+I am currently developing a lightweight Convolutional Neural Network (CNN) designed to identify sub-sections of an image where a lane line is present. This binary classifier will significantly enhance the efficiency of our edge detection algorithm by isolating its application to areas identified by the CNN, thereby reducing runtime.
+
+The model architecture for this lightweight CNN is fairly straightforward to implement. The main challenge, however, lies in acquiring a robust dataset and ensuring proper formatting of the images. These steps are crucial for the performance of our CNN and will require some time to be effectively completed. This upgrade will be a substantial improvement to the lane line detection project, making it faster and more accurate.
